@@ -56,7 +56,8 @@ public class DeleteAdController {
 			System.out.println("failed_delete");
 		}
 		this.mav.setViewName("/adminpage");
-		
+		System.out.println("깃깃");
+		System.out.println("깃은 깃이다");
 		return this.mav;
 		
 	} 
