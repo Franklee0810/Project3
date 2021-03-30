@@ -43,6 +43,9 @@ public class AdminDao {
 	}
 
 	public int deleteAdlistByPk(int no) {
+		System.out.println("깃깃");
+		System.out.println("깃은 깃이다");
 		return this.sql.delete(namespace + "deleteListByPk", no);
+		
 	}
 }
