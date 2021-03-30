@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+	<mapper namespace="NsAdmin">
+		<select id="selectAdmin" resultType="MyAdmin" parameterType="hashMap">
+			select * from 
+			admin where id = #{id} and password = #{password}
+		</select> 
+		
+		
+		<insert id="InsertAd" parameterType="MyAd">
+			insert into ad(no, title, created_at, read_at, ad_type, image, thumbImg)
+			values(seq_ad.nextval, #{title}, sysdate, 0, #{ad_type}, #{image}, #{thumbImg} )
+		</insert> 
+		
+		<select id="getAdList" resultType="MyAd">
+			select*from ad
+		</select> 
+		
+		<sql id="myselect">
+			select no, title, created_at, read_at, ad_type, image, thumbImg from ad
+		</sql>
+		
+		<select id="getAdListByPk" parameterType="Integer" resultType="MyAd">
+			<include refid="myselect"/>
+			where no = #{no}
+		</select>
+		
+		<delete id="deleteListByPk" parameterType="Integer">
+			delete from ad where no = #{no}
+		</delete>
+		
+	</mapper>
+	
+	 
